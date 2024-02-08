@@ -1,3 +1,1 @@
-add_executable(helloworld helloworld.c
-        helloworld.c
-        helloworld.c)
+add_executable(helloworld helloworld.c)
