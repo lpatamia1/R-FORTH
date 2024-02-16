@@ -1,10 +1,12 @@
 #include "token.h"
 #include <string.h>
 
-token_t create_token(token_type_t type, const char* text) {
-    token_t token;
-    token.type = type;
-    token.text = strdup(text);
+token_t* create_token(token_type_t type, const char* text) {
+    token_t* token = (token_t*)malloc(sizeof(token_t));
+    if (!token) return NULL;
+
+    token->type = type;
+    token->text = strdup(text); // Copy text to ensure the token owns its text
     return token;
 }
 
