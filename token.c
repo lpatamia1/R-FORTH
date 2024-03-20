@@ -28,3 +28,37 @@ void free_token(token_t* token) {
         token->text = NULL;
     }
 }
+void over(const IntStack* s) {
+    if (s->top < 1) {
+        printf("Error: insufficient items for 'over'\n");
+        return;
+    }
+    int item = s->items[s->top - 1];
+    push(s, item);
+}
+
+// Implement the DROP operation
+void drop(IntStack* s) {
+    if (!isEmpty(s)) {
+        pop(s);
+    }
+}
+
+// Implement the DUP (duplicate) operation
+void dup(IntStack* s) {
+    if (!isEmpty(s)) {
+        int item = peek(s);
+        push(s, item);
+    }
+}
+
+// Add two top items
+void add(IntStack* s) {
+    if (s->top < 1) {
+        printf("Error: insufficient items for 'add'\n");
+        return;
+    }
+    int a = pop(s);
+    int b = pop(s);
+    push(s, a + b);
+}
